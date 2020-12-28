@@ -56,7 +56,7 @@ map.on('load', function () {
 // Create the popup 
 map.on('click', 'Positivity Rate', function (e) {
     var County = e.features[0].properties.County;
-    // var NAMELSAD = e.features[0].properties.NAMELSAD;
+    var NAMELSAD = e.features[0].properties.NAMELSAD;
     var Number_of_Cases = e.features[0].properties.Number_of_Cases;
     var Percent = e.features[0].properties.Percent;
     var Percentage_in_Poverty = e.features[0].properties.Percentage_in_Poverty;
@@ -93,7 +93,7 @@ map.on('click', 'Positivity Rate', function (e) {
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h4>' + County + '</h4>'
-            // + '<p>' + NAMELSAD + '</p>'
+            + '<p>' + NAMELSAD + '</p>'
             + '<p>' + Percentage_in_Poverty  + '% live in poverty </p>'
             + '<p>' + 'population: ' + Population_Size + '</p>'
             + '<h2>' + Percent + ' % (' + Number_of_Cases + ' cases) </h2>'

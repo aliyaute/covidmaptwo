@@ -29,7 +29,7 @@ map.on('load', function () {
         'type': 'fill',
         'source': {
             'type': 'geojson',
-            'data': 'data/map_two_Data.geojson'
+            'data': 'data/correct.geojson'
         },
         'layout': {
             // make layer visible by default
@@ -40,9 +40,11 @@ map.on('load', function () {
                     'case', 
                     ['==',['get', 'percent_category'], 1], '#67000d',
                     ['==',['get', 'percent_category'], 2], '#a50f15',
-                    ['==',['get', 'percent_category'], 3], '#fb6a4a',
-                    ['==',['get', 'percent_category'], 4], '#fc9272', 
-                    ['==',['get', 'percent_category'], 5], '#fcbba1', 
+                    ['==',['get', 'percent_category'], 3], '#cb181d',
+                    ['==',['get', 'percent_category'], 4], '#fb6a4a', 
+                    ['==',['get', 'percent_category'], 5], '#fc9272', 
+                    ['==',['get', 'percent_category'], 6], '#fcbba1', 
+                    ['==',['get', 'percent_category'], 7], '#fee0d2', 
 
 
                     '#d3d3d3',
@@ -53,12 +55,13 @@ map.on('load', function () {
 
 });
 
-// Create the popup 
+// Create the popup for 2nd layer
 map.on('click', 'Positivity Rate', function (e) {
     var County = e.features[0].properties.County;
     var NAMELSAD = e.features[0].properties.NAMELSAD;
+    // var Area = e.features[0].properties.Area;
     var Number_of_Cases = e.features[0].properties.Number_of_Cases;
-    var Percent = e.features[0].properties.Percent;
+    var percent_correct = e.features[0].properties.percent_correct;
     var Percentage_in_Poverty = e.features[0].properties.Percentage_in_Poverty;
     var Population_Size = e.features[0].properties.Population_Size;
     var Percent_White = e.features[0].properties.Percent_White;
@@ -67,10 +70,9 @@ map.on('click', 'Positivity Rate', function (e) {
     var Percent_Hispanic = e.features[0].properties.Percent_Hispanic;
     var Percent_Asian = e.features[0].properties.Percent_Asian;
     var Other_Percent = e.features[0].properties.Other_Percent;
-
-    Percent = (Percent* 100).toFixed(0);
-    if (Percent < 1) {
-        Percent = "< 1";
+    percent_correct = (percent_correct* 100).toFixed(0);
+    if (percent_correct < 1) {
+        percent_correct = "< 1";
       }
     if (Percent_Asian < 1) {
         Percent_Asian = "< 1";
@@ -92,11 +94,11 @@ map.on('click', 'Positivity Rate', function (e) {
     County = County.toUpperCase().bold();
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<h4>' + County + '</h4>'
+        .setHTML('<h4>' + County + ' COUNTY </h4>'
             + '<p>' + NAMELSAD + '</p>'
             + '<p>' + Percentage_in_Poverty  + '% live in poverty </p>'
+            + '<h2>' + Number_of_Cases + ' cases (' + percent_correct + '%) </h2>'
             + '<p>' + 'population: ' + Population_Size + '</p>'
-            + '<h2>' + Percent + ' % (' + Number_of_Cases + ' cases) </h2>'
             + '<p>' + 'White: ' + Percent_White + '% </p>'
             + '<p>' + 'African American: ' + Percent_Black + '% </p>'
             + '<p>' + 'Native American: ' + Percent_AIAN + '% </p>'
@@ -106,6 +108,7 @@ map.on('click', 'Positivity Rate', function (e) {
 
         .addTo(map);
 });
+
 // Change the cursor to a pointer when the mouse is over the countiesNY layer.
 map.on('mouseenter', 'Positivity Rate', function () {
     map.getCanvas().style.cursor = 'pointer';

@@ -85,7 +85,7 @@ h1 {
     color: #323131; 
     font-family: "Helvetica Neue",Arial,sans-serif; 
     font-size: 24px; 
-    font-weight: normal; 
+    font-weight: bold; 
     line-height: 40px; 
     margin-right: 5px;
     margin-top: 1em;
@@ -98,8 +98,10 @@ h5 {
     font-family: 'Lato Italic', sans-serif;
     font-weight: normal; 
     line-height: 19px; 
-    margin-right: 220px;
-    margin-left: 220px;
+    margin-right: 210px;
+    margin-left: 210px;
+    font-size: 14.2px; 
+
 
 }
 

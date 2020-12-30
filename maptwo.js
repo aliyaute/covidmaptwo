@@ -50,10 +50,26 @@ map.on('load', function () {
 
                     '#d3d3d3',
                 ],
-                "fill-outline-color": "#ffffff"
+                // "fill-outline-color": "#ffffff"
         }
     }, 'landuse'); // Here's where we tell Mapbox where to slot this new layer
-
+ 
+    map.addLayer({
+        'id': 'states-layer-outline',
+        'type': 'line',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'source': {
+          'type': 'geojson',
+          'data': 'data/correct.geojson'
+        },
+        'paint': {
+          'line-color': '#737373',
+          'line-width': 0.6
+        }
+    }, 'landuse'); // Here's where we tell Mapbox where to slot this new layer
+    
 });
 
 // Create the popup for 2nd layer
@@ -101,9 +117,9 @@ map.on('click', 'Positivity Rate', function (e) {
             + '<h2>' + Number_of_Cases + ' cases (' + percent_correct + '%) </h2>'
             + '<p>' + 'population: ' + Population_Size + '</p>'
             + '<p>' + 'White: ' + Percent_White + '% </p>'
-            + '<p>' + 'African American: ' + Percent_Black + '% </p>'
+            + '<p>' + 'Black/African American: ' + Percent_Black + '% </p>'
             + '<p>' + 'Native American: ' + Percent_AIAN + '% </p>'
-            + '<p>' + 'Hispanic: ' + Percent_Hispanic + '% </p>'
+            + '<p>' + 'Hispanic/Latino: ' + Percent_Hispanic + '% </p>'
             + '<p>' + 'Asian: ' + Percent_Asian + '% </p>'
             + '<p>' + 'Other: ' + Other_Percent + '% </p>')
 

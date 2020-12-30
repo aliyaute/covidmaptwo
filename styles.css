@@ -61,7 +61,7 @@ z-index: 1;
 margin: 0 0 0px;
 background: #1F497D;
 color: #fff;
-padding: 3px 10px ;
+padding: 3px 3px ;
 font-size: 13px;
 border-radius: 5px;
 box-shadow: 0 0 0 2px #ddd;
@@ -89,7 +89,9 @@ h1 {
     line-height: 40px; 
     margin-right: 5px;
     margin-top: 1em;
-    margin-left: 345px;
+    margin-left: 285px;
+    margin-right: 200px;
+
 
 }
 
@@ -98,8 +100,8 @@ h5 {
     font-family: 'Lato Italic', sans-serif;
     font-weight: normal; 
     line-height: 19px; 
-    margin-right: 210px;
-    margin-left: 210px;
+    margin-right: 215px;
+    margin-left: 215px;
     font-size: 14.2px; 
 
 

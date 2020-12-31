@@ -1,4 +1,5 @@
 /* maptwo updated Dec. 30, 2020, 2.53pm*/
+
 body {
     margin: 0;
     padding: 0;
@@ -144,7 +145,7 @@ box-shadow: 0 0 0 2px #ddd;
 margin-left: 0.5px;
 
 }
-
+/* iphone */
 @media only screen and (max-width: 415px) {
 
     h1 {
@@ -239,7 +240,7 @@ margin-left: 0.5px;
     }
     }
 
-
+/* ipad */
     @media only screen and (max-width: 1024px) {
         .legend {
             position: fixed;
